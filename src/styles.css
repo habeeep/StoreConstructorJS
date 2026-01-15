@@ -1,0 +1,49 @@
+:root{
+  --bg:#f7f8fa;
+  --card:#fff;
+  --accent:#0b74de;
+  --muted:#666;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, Arial, sans-serif;margin:0;background:var(--bg);color:#111}
+.page{max-width:1200px;margin:40px auto;padding:20px}
+.center{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+input{padding:12px;margin:12px 0;display:block;width:100%;max-width:420px;border:1px solid #ddd;border-radius:6px;font-family:inherit;font-size:16px;transition:border-color 0.2s ease}
+input:focus{outline:none;border-color:var(--accent)}
+button{padding:10px 14px;background:var(--accent);color:white;border:0;border-radius:6px;cursor:pointer;transition:background 0.2s ease}
+button:hover:not(:disabled){background:#0a5bb8}
+button:disabled{opacity:0.6;cursor:not-allowed}
+.button-group{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.button-group button{margin:0}
+.grid{display:flex;gap:12px;flex-wrap:wrap}
+.card{background:var(--card);border-radius:8px;padding:8px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.06);display:flex;flex-direction:column;align-items:stretch}
+.card.selected{outline:3px solid rgba(11,116,222,0.18)}
+.card .card-img{display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:6px}
+.card .card-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* wide cards (themes, fonts) */
+.card--wide{width:220px}
+.card--wide .card-img{height:90px}
+
+/* default/square */
+.card--default{width:140px}
+.card--default .card-img{height:80px}
+
+/* large cards for backgrounds */
+.card--large{width:340px}
+.card--large .card-img{height:560px}
+
+/* grid modifier: single column (one card per row) */
+.grid--single{flex-direction:column}
+.grid--single .card{width:100%}
+.grid--single .card .card-img{height:120px}
+
+/* two-per-row grid (for backgrounds) */
+.grid--two{flex-wrap:wrap}
+.grid--two .card{width:calc(50% - 12px)}
+.grid--two .card--large .card-img{height:700px}
+
+@media (max-width:700px){
+  .grid--two .card{width:100%}
+}
+.card-title{text-align:center;padding-top:8px;color:var(--muted)}
